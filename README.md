@@ -109,7 +109,7 @@ eq_clean_data(eq_data_raw) %>% eq_location_clean() %>%
           location = LOCATION_NAME,
           xmin = lubridate::ymd("2000-01-01"), 
           xmax = lubridate::ymd("2016-01-01"),
-          size=EQ_PRIMARY,n_max=5y=COUNTRY)) 
+          size=EQ_PRIMARY,n_max=5,y=COUNTRY)) 
 ```
 
 ### get_timeline
