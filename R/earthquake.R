@@ -1,13 +1,13 @@
-library(readr)
-library(tidyr)
-library(dplyr)
-library(lubridate)
-library(stringr)
-library(grid)
-library(ggplot2)
-library(leaflet)
-library(devtools)
-library(roxygen2)
+#library(readr)
+#library(tidyr)
+#library(dplyr)
+#library(lubridate)
+#library(stringr)
+#library(grid)
+#library(ggplot2)
+#library(leaflet)
+#library(devtools)
+#library(roxygen2)
 
 #######################################  module 1 ##########################################################
 
