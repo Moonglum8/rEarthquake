@@ -1,0 +1,18 @@
+Package: rEarthquake
+Type: Package
+Title: rEarthquake
+Version: 0.0.1
+Author: Michael Tagg
+Maintainer: Michael Tagg <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-2 | file LICENCE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Depends: R (>= 2.10)
+Imports: dplyr, ggplot2,leaflet,stringr,lubridate,tidyr, grid
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
