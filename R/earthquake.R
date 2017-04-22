@@ -167,11 +167,11 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 # @importFrom grid gTree
 # @importFrom grid gList
 #' @export
-geomTimeline <- ggplot2::ggproto("geomTimeline", Geom,
+geomTimeline <- ggplot2::ggproto("geomTimeline", ggplot2::Geom,
         required_aes = c("x"),
         optional_aes = c("y", "xmin","xmax"),
-        default_aes = aes(shape = 21, size = 1, colour = "blue", fill = "blue", alpha = 0.5, stroke = 1, y = 0.5),
-        draw_key = draw_key_point,
+        default_aes = ggplot2::aes(shape = 21, size = 1, colour = "blue", fill = "blue", alpha = 0.5, stroke = 1, y = 0.5),
+        draw_key = ggplot2::draw_key_point,
 
         draw_group = function(data, panel_scales, coord) {
               #  browser()
@@ -179,18 +179,18 @@ geomTimeline <- ggplot2::ggproto("geomTimeline", Geom,
 
              # SegmentGrob to draw line where we will plot our earthquake points
              seg_grob <- grid::segmentsGrob(
-                  x0 = unit(coords$xmin,"native"),
-                  x1 = unit(coords$xmax,"native"),
-                  y0 = unit(coords$y,"native"),
-                  y1 = unit(coords$y,"native"),
+                  x0 = grid::unit(coords$xmin,"native"),
+                  x1 = grid::unit(coords$xmax,"native"),
+                  y0 = grid::unit(coords$y,"native"),
+                  y1 = grid::unit(coords$y,"native"),
                   gp = grid::gpar(col = "grey", alpha = 0.25)
              )
              # pointGrob to draw earthquakes with varying size and alpha
              point_grob <- grid::pointsGrob(
-                  x = unit(coords$x,"native"),
+                  x = grid::unit(coords$x,"native"),
                   y = coords$y,
                   pch = coords$shape,
-                  size = unit(coords$size,"mm"),
+                  size = grid::unit(coords$size,"mm"),
                   gp = grid::gpar(col = coords$colour, fill = coords$fill, alpha = coords$alpha)
              )
              # draws an xaxis
@@ -205,7 +205,7 @@ geomTimeline <- ggplot2::ggproto("geomTimeline", Geom,
 #' @usage NULL
 # @importFrom dplyr filter
 #' @export
-StatTimeline <- ggproto("StatTimeline", Stat,
+StatTimeline <- ggplot2::ggproto("StatTimeline", ggplot2::Stat,
                    required_aes = c("x","xmin","xmax"),
                   # default_aes = aes(y = ..density..),
                    setup_params = function(data, params) {
@@ -228,10 +228,10 @@ StatTimeline <- ggproto("StatTimeline", Stat,
 #' @format NULL
 #' @usage NULL
 #' @export
-theme_timeline <- theme_classic() + theme(axis.title.x = element_text(face = "bold"),
-                                          axis.line.y = element_blank(),
-                                          axis.ticks.y = element_blank(),
-                                          axis.title.y = element_blank(),
+theme_timeline <- ggplot2::theme_classic() + ggplot2::theme(axis.title.x = ggplot2::element_text(face = "bold"),
+                                          axis.line.y = ggplot2::element_blank(),
+                                          axis.ticks.y = ggplot2::element_blank(),
+                                          axis.title.y = ggplot2::element_blank(),
                                           legend.box = "horizontal",
                                           legend.direction = "horizontal",
                                           legend.position = "bottom")
@@ -363,11 +363,11 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, stat = "identity",
 # @importFrom grid gTree
 # @importFrom grid gList
 #' @export
-geomTimelineLabel <- ggplot2::ggproto("geomTimelineLable", Geom,
+geomTimelineLabel <- ggplot2::ggproto("geomTimelineLable", ggplot2::Geom,
              required_aes = c("x","location"),
              optional_aes = c("y","n_max"),
-             default_aes = aes(size =0, y = 0.5, fontsize = 8, alpha = 0.75, colour = "blue", fill = "blue"),
-             draw_key = draw_key_blank,
+             default_aes = ggplot2::aes(size =0, y = 0.5, fontsize = 8, alpha = 0.75, colour = "blue", fill = "blue"),
+             draw_key = ggplot2::draw_key_blank,
 
              draw_panel = function(data, panel_scales, coord) {
                   data
@@ -388,17 +388,17 @@ geomTimelineLabel <- ggplot2::ggproto("geomTimelineLable", Geom,
 
                   # SegmentGrob to draw lines where we will plot our earthquake points
                   seg_grob <- grid::segmentsGrob(
-                       x0 = unit(coords$x,"native"),
-                       x1 = unit(coords$x,"native"),
-                       y0 = unit(coords$y,"native"),
-                       y1 = unit(coords$y + 0.05,"native"),
+                       x0 = grid::unit(coords$x,"native"),
+                       x1 = grid::unit(coords$x,"native"),
+                       y0 = grid::unit(coords$y,"native"),
+                       y1 = grid::unit(coords$y + 0.05,"native"),
                        gp = grid::gpar(col = "grey", alpha = 0.75)
                   )
                   # textGrob to print location
                   text_grob <- grid::textGrob(
                        label = coords$location,
-                       x = unit(coords$x,"native"),
-                       y = unit(coords$y + 0.06,"native"),
+                       x = grid::unit(coords$x,"native"),
+                       y = grid::unit(coords$y + 0.06,"native"),
                        rot = 45,
                        just = "left",
                        gp = grid::gpar(fontsize = 8)
