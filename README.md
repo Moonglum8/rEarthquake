@@ -1,5 +1,7 @@
 # rEarthquake package
 
+[![Build Status](https://travis-ci.org/Moonglum8/rEarthquake.svg?branch=master)](https://travis-ci.org/Moonglum8/rEarthquake)
+
 The functions provided by this package use data from the [U.S. National Oceanographic and Atmospheric Administration (NOAA)](https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1) Significant Earthquake Database. This dataset contains information about 5,933 earthquakes over an approximately 4,000 year time span.
 
 ## Required set-up for this package
