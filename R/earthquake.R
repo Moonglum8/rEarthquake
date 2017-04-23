@@ -9,6 +9,14 @@
 #library(devtools)
 #library(roxygen2)
 
+############################################################################################################
+
+if(getRversion() >= "2.15.1") {
+     utils::globalVariables(c("YEAR","MONTH","DAY","LONGITUDE","LATITUDE",
+                              "LOCATION_NAME","COUNTRY","DEATHS","EQ_PRIMARY",
+                              "datetime","year","date_s1","bcyear"))
+}
+
 #######################################  module 1 ##########################################################
 
 ## Earthquate data (in tab delimited format) obtained from
